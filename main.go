@@ -19,15 +19,13 @@ import (
 	"gorm.io/gorm"
 )
 
-var (
-	db *gorm.DB
-)
-
 func initDB() *gorm.DB {
-	// Load environment variables from .env file
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("Error loading .env file")
+	// Only load the .env file when running locally
+	// Check for a RAILWAY_ENVIRONMENT, if not found, code is running locally
+	if _, exists := os.LookupEnv("RAILWAY_ENVIRONMENT"); !exists {
+		if err := godotenv.Load(); err != nil {
+			log.Fatal("Error loading .env file:", err)
+		}
 	}
 
 	// Get the environment variables
@@ -42,7 +40,7 @@ func initDB() *gorm.DB {
 		host, user, password, dbname, dbPort)
 
 	// Connect to the database
-	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
