@@ -21,7 +21,6 @@ steps = [
 ]
 
 [variables]
-DATABASE_URL = "postgres://postgres:hysspy99@127.0.0.1:8080/mygram?sslmode=disable"
 PORT = "8080"
 
 [services]
