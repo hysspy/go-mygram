@@ -11,7 +11,7 @@ MyGram Rest API
 
 ### Deployed to :
 
-Railway
+## Railway : go-mygram-production-4d94.up.railway.app
 
 ### Table of Contents
 - [Features](#features)
