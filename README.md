@@ -51,6 +51,7 @@ In the root project directory, run:
 - **go run main.go**
 
 - **Please Test using Postman**
+- **https://go-mygram-production-4d94.up.railway.app/**
 
 ### License
 This project is licensed under the GNU GPLv3 License - see the COPYING file for details.
